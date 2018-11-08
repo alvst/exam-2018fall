@@ -31,6 +31,28 @@
         /* Your JavaScript goes here */
         const squares = ["Go", "Mediterranean Avenue", "Community Chest", "Baltic Avenue", "Income Tax", "Reading Railroad", "Oriental Avenue", "Chance", "Vermont Avenue", "Connecticut Avenue", "Visiting Jail", "St. Charles Place", "Electric Company", "States Avenue", "Virginia Avenue", "Pennsylvania Railroad", "St James Place", "Community Chest", "Tennessee Avenue", "New York Avenue", "Free Parking", "Kentucky Avenue", "Chance", "Indiana Avenue", "Illinois Avenue", "B &amp; O Railroad", "Atlantic Avenue", "Ventnor Avenue", "Water works", "Marvin Gardens", "Go to Jail", "Pacific Avenue", "No. Carolina Avenue", "Community Chest", "Pennsylvania Avenue", "Short line Railroad", "Chance", "Park Place", "Luxury Tax", "Broadwalk"];
         let loc = 0;
+        function roll(){
+            D1 = document.getElementById('1');
+            D2 = document.getElementById('2');
+            D1 = Math.random() * 6 + 1;
+            D2 = Math.random() * 6 + 1;
+            D1 = parseInt(D1);
+            D2 = parseInt(D2);
+            document.getElementById("1").innerHTML = D1;
+            document.getElementById("2").innerHTML = D2;
+            let total = D1 + D2;
+            loc += total;
+            alert(loc);
+            if (loc >= 40) {
+                loc -= 40;
+                alert("You passed Go");
+            }
+            square1 = parseInt(loc);
+            spot = squares[square1];
+            // alert(spot);
+            document.getElementById("place").innerHTML = spot;
+            
+        }
     </script>
 </head>
 
@@ -52,11 +74,11 @@
 
     <div>
         <p>
-            Die 1: 0<br/>
-            Die 2: 0<br/>
-            Your piece is on Go.
+            Die 1: <span id="1"></span><br/>
+            Die 2: <span id="2"></span><br/>
+            Your piece is on <span id="place">Go</span>.
         </p>
-        <button>Roll the dice</button>
+        <button onclick="return roll()">Roll the dice</button>
     </div>
 
 </body>

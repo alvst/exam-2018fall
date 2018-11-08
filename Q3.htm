@@ -30,6 +30,30 @@
             text-align: left;
         }
     </style>
+    <script type="text/javascript">
+        function opperate(){
+            let start = document.getElementById('from').value;
+            let end = document.getElementById("to").value;
+            // alert(start);
+            if (start < 0 || start == "") {
+                alert("You must use Positive numbers");
+            }
+            
+
+            let startx = parseInt(start);
+            // alert(isNaN(startx));
+            let endx = parseInt(end);
+            // alert(isNaN(endx));
+            let total = 1;
+            for (let i = startx; i <= endx; i++){
+                total *= i;
+                // alert(total);
+            } 
+            // alert(total);
+            document.getElementById('answer').innerHTML = total;
+            return false;
+        }
+    </script>
 </head>
 
 <body>
@@ -43,13 +67,13 @@
     </p>
     <form>
         <p>
-            From: <input type="text" name="from" size="10"/> To: <input type="text" name="to" size="10">
+            From: <input type="text" name="from" size="10" id="from" /> To: <input type="text" name="to" size="10" id="to">
         </p>
         <p>
-            <input type="submit" name="calc" value="Calculate">
+            <input type="submit" name="calc" value="Calculate" onclick="return opperate()">
             <input type="reset" name="reset" value="CLEAR">
         </p>
-        <p>The product is .</p>
+        <p>The product is <span id="answer"></span>.</p>
     </form>
 
 </body>

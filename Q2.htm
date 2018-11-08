@@ -31,7 +31,31 @@
     </style>
 
     <script type="text/javascript">
+        function change(x){
 
+            let rocks = document.getElementById('RocksT');
+            let sucks = document.getElementById('SucksT');
+            if (x == 1) {
+                sucks.innerHTML = "";
+                rocks.innerHTML = "Web Tech Rocks!";
+                rocks.style.color = "red";
+                rocks.style.fontSize = "2em"; 
+                rocks.style.fontFamily = "Lucida Handwriting";
+                rocks.style.backgroundColor = "yellow";
+                sucks.style.backgroundColor = "";
+                // ize 2em, using Lucida Handwriting with a yellow background.
+            }
+            if (x == 2) {
+                rocks.innerHTML = "";
+                sucks.innerHTML = "Web Tech Sucks!";
+                sucks.style.color = "green";
+                sucks.style.fontSize = "2em"; 
+                sucks.style.fontFamily = "Arial";
+                sucks.style.backgroundColor = "blue";
+                rocks.style.backgroundColor = "";
+                // green font, bold, size 2em, with a blue background and using Arial font.
+            }
+        }
     </script>
 </head>
 
@@ -48,13 +72,13 @@
     </p>
 
     <table>
-        <tr>
-            <td><img src="smiley.jpg" alt="Smiling Face" title="Smile"></td>
-            <td>Web Tech Rocks!</td>
+        <tr id="input">
+            <td id="Rocks"><img src="smiley.jpg" onclick="return change(1)" alt="Smiling Face" title="Smile"></td>
+            <td id="RocksT">Web Tech Rocks!</td>
         </tr>
         <tr>
-            <td><img src="frown.jpg" alt="Frown Face" title="Sad"></td>
-            <td>Web Tech Sucks!</td>
+            <td id="Sucks"><img src="frown.jpg" alt="Frown Face" title="Sad" onclick="return change(2)"></td>
+            <td id="SucksT">Web Tech Sucks!</td>
         </tr>
 
     </table>
